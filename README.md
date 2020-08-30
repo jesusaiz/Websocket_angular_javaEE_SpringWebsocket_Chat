@@ -1,7 +1,7 @@
 # Websocket Chat
 This app it´s a simple bidirectional Chat using Stomp protocol and SocketJs
 
-The project was generated with the foollowing tecnologies: 
+The project was generated with the following tecnologies: 
 
 Front-end: Angular version 8.3.13, SOCKJS, STOMPJS
 
