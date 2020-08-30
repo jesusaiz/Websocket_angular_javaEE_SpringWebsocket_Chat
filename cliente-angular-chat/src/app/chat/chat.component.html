@@ -1,0 +1,84 @@
+<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * 
+**@Autor: Jesús Saiz Sedano
+**@Título: ChatApp: Angular 8 && Java SpringBoot
+**@Version: 1.0 
+@ChatComponent.html
+*-->
+
+<!-- Terminal -->
+<div class="content" >
+    <div class="terminal">
+
+        <!-- Botones superiores: Login-->
+            <div class="card-header">
+              <div class="chat-login" *ngIf="!conectado">
+                <ul class="chat-user">
+                  <h1 class="titulo">Bienvenido al Chat</h1>
+                  <h3 class="subtitulo">Escribe tu nombre</h3>
+                  <li class="nav-item mr-2" >
+                    <input type="text" [(ngModel)]="mensaje.username" class="form-control" placeholder="Tu Username..." name="username">
+                  </li>
+                  <li class="nav-item mr-2">
+                    <button class="btn btn-success" type="button" (click)="conectar()"
+                    *ngIf="!conectado" [disabled]="!mensaje.username">Conectar</button>
+                  </li>
+                </ul>
+              </div>
+              <div class="chat-logged">
+                <ul class="nav nav-pills card-header-pills">
+                  <li class="nav-item mr-2"  *ngIf="conectado">
+                    <button class="btn btn-warning" type="button" (click)="desconectar() "  >Cerrar Chat</button>
+                    <span class="user-login">Usuario: <span class="subtitulo">{{mensaje.username}}</span></span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            
+        <!-- Chat: Usuario --> 
+          <div #scrollChat [scrollTop]="scrollChat.scrollHeight"  class="card-body"  style="overflow-y: scroll; height: 360px;" *ngIf="conectado">
+                <div class="list-group">
+                  <div class="list-group-item list-group-item-blue" *ngFor="let mensaje of mensajes">
+                   <div class="userNew"  *ngIf="mensaje.tipo == 'NUEVO_USUARIO'">
+                                   {{mensaje.texto}} @ <span class="userUppercase">{{mensaje.username}}</span> se ha unido
+                        <div class="fechaFormat">{{mensaje.fecha | date: 'shortTime'}} </div>
+                    </div>
+
+
+                    <!-- Chat: mensajes  -->
+                      <div class="userMensaje" *ngIf="mensaje.tipo == 'MENSAJE'"> 
+                              <ngx-avatar  size="40" name= "{{mensaje.username}} "></ngx-avatar>
+                            <div class="mUser">
+                                <span style="color: #f3a909;">{{mensaje.username}}: </span>
+                            </div> 
+                            <div class="mTexto">
+                                <span> {{mensaje.texto}} </span>
+                            <div class="fechaFormat">{{mensaje.fecha | date: 'shortTime'}}</div>
+                          </div>
+                      </div>
+                  
+
+                  <!--abandonar chat -->
+                    <div class="userLeft" *ngIf="(!conectado) || (mensaje.tipo == 'USUARIO_ABANDONAR')">
+                      <span class="userUppercase">{{mensaje.username}}</span> {{mensaje.texto}}
+                        <div class="fechaFormat">{{mensaje.fecha | date: 'shortTime'}} </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+        
+        <!-- Botones enviar mensaje -->
+    <div class="card-footer" *ngIf="conectado">
+      <form class="form-inline">
+        <div class="form-group mx-3">
+          <input type="text" [(ngModel)]="mensaje.texto" class="form-control footer" placeholder="Escribe un mensaje..." name="texto" 
+          (keyup)="escribiendoEvento()">
+        </div>
+        <button class="btn btn-primary" type="submit" (click)="enviarMensaje()">Enviar</button>
+      </form>
+      <div class="escribe">{{escribiendo}}</div>
+    </div>
+    
+</div>
+
+<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+

@@ -1,0 +1,1 @@
+export const URL_BACKEND = 'https://spring-websocket-heroku-chat.herokuapp.com/'

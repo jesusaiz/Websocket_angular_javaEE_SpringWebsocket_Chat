@@ -1,0 +1,556 @@
+/**
+ * =================================================================== 
+ *
+ *  Jesús Saiz sedano
+ *  url: github
+ *  20-10-2019
+ *  ------------------------------------------------------------------
+ *  TOC:
+ *  01. webfonts and iconfonts
+ *  02. base style overrides
+ *  03. typography & general theme styles
+ *  04. common styles
+ *  05. header styles
+ *  06. intro_styles
+ *  
+ *
+ * =================================================================== 
+ */
+
+
+/** 
+ * ===================================================================
+ * 01. webfonts and iconfonts - (_document-setup.scss)
+ *
+ * ------------------------------------------------------------------- 
+ */
+@import url("fonts.css");
+@import url("font-awesome/css/font-awesome.min.css");
+@import url("micons/micons.css");
+
+
+/** 
+ * ===================================================================
+ * 02. base style overrides - (_document-setup.scss)
+ *
+ * ------------------------------------------------------------------- 
+ */
+html {
+	font-size: 10px;
+}
+
+@media only screen and (max-width:1024px) {
+	html {
+		font-size: 9.411764705882353px;
+	}
+}
+@media only screen and (max-width:768px) {
+	html {
+		font-size: 10px;
+	}
+}
+@media only screen and (max-width:400px) {
+	html {
+		font-size: 9.411764705882353px;
+	}
+}
+
+html, body {
+	height: 100%;
+}
+body {
+	background: #d0d2d3;
+	font-family: "poppins-regular", serif;
+	font-size: 1.7rem;
+	line-height: 3rem;
+	color: #6e6e6e;
+}
+
+/**
+ * links - (_document-setup.scss)
+ * -------------------------------------------------------------------
+ */
+a, a:visited {
+	color:#888888 ;
+	-moz-transition: all 0.3s ease-in-out;
+	-o-transition: all 0.3s ease-in-out;
+	-webkit-transition: all 0.3s ease-in-out;
+	-ms-transition: all 0.3s ease-in-out;
+	transition: all 0.3s ease-in-out;
+}
+a:hover, a:focus, a:active {
+	color:#0aeba5;
+	outline: 0;
+}
+
+/** 
+ * ===================================================================
+ * 03. typography & general theme styles - (_document-setup.scss)
+ *
+ * ------------------------------------------------------------------- 
+ */
+h1, h2, h3, h4, h5, h6, .h01, .h02, .h03, .h04, .h05, .h06 {
+	font-family: "poppins-semibold", sans-serif;
+	color: #313131;
+	font-style: normal;
+	text-rendering: optimizeLegibility;
+	margin-bottom: 2.1rem;
+}
+h3, .h03, h4, .h04 {
+	margin-bottom: 8px;
+}
+h5, .h05, h6, .h06 {
+	font-family: "poppins-bold";
+	margin-bottom: 1.2rem;
+}
+h1, .h01 {
+	font-size: 3.1rem;
+	line-height: 1.355;
+	letter-spacing: -.1rem;
+}
+@media only screen and (max-width:600px) {
+	h1, .h01 {
+		font-size: 2.6rem;
+		letter-spacing: -.07rem;
+	}
+}
+h2, .h02 {
+	font-size: 2.4rem;
+	line-height: 1.25;
+	text-transform: uppercase;
+	color: #0aeba5;
+	margin: 40px 0 5px 0;
+}
+h3, .h03 {
+	font-size: 2rem;
+	line-height: 1.5;
+	
+
+}
+h4, .h04 {
+	font-size: 1.7rem;
+	line-height: 1.765;
+}
+h5, .h05 {
+	font-size: 16px;
+	line-height: 2.3rem;
+	text-transform: uppercase;
+	letter-spacing: .15rem;
+	margin: 20px 0 0 101px;
+	color: #df5c6d;
+
+}
+h6, .h06 {
+	font-size: 12px;
+	line-height: 1.846;
+	text-transform: uppercase;
+	letter-spacing: .15rem;
+    font-family: poppins-regular;
+}
+p img {
+	margin: 0;
+}
+p.lead {
+	font-family: "poppins-regular", serif;
+	font-size: 2rem;
+	line-height: 1.8;
+	color: #888888;
+	margin-bottom: 40px;
+
+}
+@media only screen and (max-width:768px) {
+	p.lead {
+		font-size: 15px;
+	}
+}
+em, i, strong, b {
+	font-size: 1.7rem;
+	line-height: 3rem;
+	font-style: normal;
+	font-weight: normal;
+}
+em, i {
+	font-family: "lora-italic", serif;
+}
+strong, b {
+	font-family: "lora-bold", serif;
+}
+small {
+	font-size: 1.2rem;
+	line-height: inherit;
+}
+
+hr {
+	border: solid #df5c6d;
+	border-width: 1px 0 0;
+	clear: both;
+	margin: 2.4rem 0 1.5rem;
+	min-height: 20px;
+}
+
+.table td, th{
+	font-family: menlo;
+	vertical-align:0;
+	font-size: 16px;
+
+}
+.container{
+	margin-top: 10px;
+}
+
+
+ 
+/** 
+ * ===================================================================
+ * 04. common styles (_layout.scss)
+ *
+ * ------------------------------------------------------------------- 
+ */
+.grey-section {
+	background: #ffff;
+}
+.grey-section p.lead {
+	color: #7d7d7d;
+}
+.section-intro {
+	max-width: 700px;
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center;
+	margin-bottom: 3.6rem;
+	position: relative;
+}
+.section-intro h1 {
+	font-family: "poppins-semibold", serif;
+	font-size: 3.6rem;
+	color: #313131;
+	line-height: 1.25;
+	margin-bottom: 1.2rem;
+}
+.section-intro h5 {
+	color: #0aeba5;
+	font-size: 1.6rem;
+	line-height: 1.875;
+	margin-bottom: 0.3rem;
+	letter-spacing: .4rem;
+}
+
+/**
+ * responsive:
+ * common styles
+ * ------------------------------------------------------------------- 
+ */
+@media only screen and (max-width:768px) {
+	.section-intro {
+		max-width: 650px;
+	}
+	.section-intro h1 {
+		font-size: 3rem;
+	}
+}
+@media only screen and (max-width:600px) {
+	.section-intro h1 {
+		font-size: 2.6rem;
+	}
+	.section-intro h5 {
+		font-size: 1.5rem;
+		letter-spacing: .3rem;
+	}
+}
+@media only screen and (max-width:400px) {
+	.section-intro h1 {
+		font-size: 2.4rem;
+	}
+}
+
+
+/** 
+ * ===================================================================
+ * 05. header styles - (_layout.scss)
+ *
+ * ------------------------------------------------------------------- 
+ */
+header {
+	position: fixed;
+	width: 100%;
+	min-height: 66px;
+	z-index: 600;
+}
+header .row {
+	position: relative;
+	/*min-height: 66px;*/
+}
+header .top-bar {
+	display: block;
+	background: #FFFFFF;
+	min-width: 350px;
+	min-height: 66px;
+	position: absolute;
+	box-shadow: 0 3px 12px hsla(225,2%,44%,.6);
+	left: 90px;
+	top: 0;
+}
+header .logo {
+	float: left;
+	min-width: 350px;
+	
+}
+
+header .logo img {
+	float: left;
+	display: block;
+	margin: 0 20px;
+	padding-left: 10px;
+	border: none;
+	font: 0/0 a;
+	text-shadow: none;
+	color: transparent;
+	width: 70px;
+	
+}
+header .top-bar.sesion{
+	display: block;
+	background: #000000;
+	min-width: 100px;
+	min-height: 66px;
+	position: absolute;
+	left: 430px;
+	top: 0;
+	
+}
+header .logo-center{
+	padding-top: 20px;
+}
+
+
+
+/**
+ * responsive:
+ * header styles
+ * --------------------------------------------------------------- 
+ */
+@media only screen and (max-width:1024px) {
+	header .top-bar {
+		left: 60px;
+	}
+}
+@media only screen and (max-width:768px) {
+	header .top-bar {
+		left: 50px;
+	}
+}
+@media only screen and (max-width:600px) {
+	header .top-bar {
+		left: 35px;
+	}
+}
+@media only screen and (max-width:400px) {
+	header .top-bar {
+		left: 25px;
+	}
+}
+
+
+/** 
+ * ===================================================================
+ *  intro -login (_layout.scss) 
+ *
+ * ------------------------------------------------------------------- 
+ */
+#intro {
+	background: #f0f1f1 /*url(/assets/images/intro-bg.jpg) no-repeat center bottom*/;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	background-size: cover;
+	background-attachment: fixed;
+	width: 100%;
+	/*height: 100%;*/
+	min-height: 220px;
+	display: table;
+	position: relative;
+	text-align: center;
+}
+#intro-footer {
+	background: #f0f1f1 /*url(/assets/images/intro-bg.jpg) no-repeat center bottom*/;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	background-size: cover;
+	background-attachment: fixed;
+	width: 100%;
+	min-height: 300px;
+	display: table;
+	text-align: center;
+}
+
+.intro-content {
+	margin-top: 130px;
+	vertical-align: middle;
+	text-align: center;
+	-webkit-transform: translateY(-2.1rem);
+	-ms-transform: translateY(-2.1rem);
+	transform: translateY(-2.1rem);
+}
+.intro-content h1 {
+	color: #000000;
+	font-family: "poppins-medium", sans-serif;
+	font-size: 8.4rem;
+	line-height: 1.071;
+	max-width: 900px;
+	margin-top: 0;
+	margin-bottom: .6rem;
+	margin-left: auto;
+	margin-right: auto;
+	
+}
+.intro-content h5 {
+	color: #0aeba5;
+	font-family: "poppins-bold", sans-serif;
+	font-size: 2.3rem;
+	line-height: 1.565;
+	margin-bottom: 0;
+	text-transform: uppercase;
+	letter-spacing: .3rem;
+	
+}
+.intro-content .intro-position {
+	font-family: "lora-regular", serif;
+	font-size: 1.7rem;
+	line-height: 2.4rem;
+	text-transform: uppercase;
+	letter-spacing: .2rem;
+	color: #000000;
+	text-shadow: 0 0 6px rgba(0, 0, 0, 0.2);
+	margin-top: 20px;
+}
+.intro-content .intro-position span {
+	display: inline-block;
+}
+.intro-content .intro-position span::after {
+	content: "|";
+	text-align: center;
+	display: inline-block;
+	padding: 0 8px 0 14px;
+	color: rgba(255, 255, 255, 0.3);
+}
+.intro-content .intro-position span:first-child::before {
+	content: "|";
+	text-align: center;
+	display: inline-block;
+	padding: 0 14px 0 8px;
+	color: rgba(255, 255, 255, 0.3);
+}
+.intro-content .button {
+	background-color: #d0d2d3 !important;
+	height: 6rem !important;
+	line-height: 5.4rem !important;
+	padding: 0 3.5rem 0 3rem !important;
+	margin-top: 30px;
+	font-size: 1.3rem;
+	text-transform: uppercase;
+	letter-spacing: .25rem;
+}
+.intro-content .button:hover, .intro-content .button:focus {
+	border-color: #0aeba5;
+	background-color: #0aeba5;
+	
+}
+.intro-content .button::after {
+	display: inline-block;
+	content: "\f107";
+	font-family: fontAwesome;
+	font-size: 1.6rem;
+	line-height: inherit;
+	text-align: center;
+	position: relative;
+	left: 1.2rem;
+}
+
+.intro-social {
+	display: block;
+	/*position: absolute;*/
+	width: 100%;
+	left: 0;
+	bottom: 7.2rem;
+	font-size: 3.3rem;
+	margin: 0;
+	padding: 0;
+}
+.intro-social li {
+	display: inline-block;
+	margin: 0 20px;
+	padding: 0;
+}
+.intro-social li a, .intro-social li a:visited {
+	color: #000000;
+}
+.intro-social li a:hover, .intro-social li a:focus {
+	color: #df5c6d;
+}
+
+/**
+ * responsive:
+ * Intro
+ * --------------------------------------------------------------- 
+ */
+@media only screen and (max-width:1024px) {
+	.intro-content h1 {
+		font-size: 7.6rem;
+	}
+	.intro-social {
+		font-size: 3rem;
+	}
+	.intro-social li {
+		margin: 0 15px;
+	}
+}
+@media only screen and (max-width:768px) {
+	
+	.intro-content h1 {
+		font-size: 5.2rem;
+	}
+	.intro-content h5 {
+		font-size: 1.8rem;
+	}
+	.intro-content .intro-position {
+		font-size: 1.3rem;
+	}
+	.intro-social {
+		font-size: 2.5rem;
+	}
+	.intro-social li {
+		margin: 0 10px;
+	}
+}
+@media only screen and (max-width:600px) {
+	#intro {
+		min-height: 200px;
+	}
+	.intro-content h1 {
+		font-size: 4.6rem;
+		margin-bottom: .6rem;
+	}
+	.intro-content h5 {
+		font-size: 1.5rem;
+		margin-bottom: .3rem;
+		letter-spacing: .2rem;
+	}
+	.intro-content .intro-position {
+		font-size: 1.2rem;
+	}
+	.intro-content .intro-position span {
+		padding: 0 .6rem;
+	}
+	.intro-content .intro-position span::before, .intro-content .intro-position span::after {
+		display: none !important;
+	}
+	.intro-social {
+		font-size: 2.4rem;
+	}
+}
+
+
+
+
+
+
+
