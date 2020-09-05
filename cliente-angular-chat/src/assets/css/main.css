@@ -283,8 +283,8 @@ header .row {
 header .top-bar {
 	display: block;
 	background: #FFFFFF;
-	min-width: 350px;
-	min-height: 66px;
+	min-width: 300px;
+	min-height: 92px;
 	position: absolute;
 	box-shadow: 0 3px 12px hsla(225,2%,44%,.6);
 	left: 90px;
@@ -292,14 +292,14 @@ header .top-bar {
 }
 header .logo {
 	float: left;
-	min-width: 350px;
+	min-width: 300px;
 	
 }
 
 header .logo img {
 	float: left;
 	display: block;
-	margin: 0 20px;
+	/*margin: 0 20px;*/
 	padding-left: 10px;
 	border: none;
 	font: 0/0 a;
@@ -308,6 +308,16 @@ header .logo img {
 	width: 70px;
 	
 }
+header .logo .main-title{
+	font-size: 16px;
+    line-height: 2.3rem;
+    text-transform: uppercase;
+    letter-spacing: .15rem;
+	color: #df5c6d;
+	text-align: center;
+	margin-left: 62px;
+}
+
 header .top-bar.sesion{
 	display: block;
 	background: #000000;
